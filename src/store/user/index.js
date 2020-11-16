@@ -109,7 +109,7 @@ export default {
           commit('setLoading', false)
         })
     },
-    signUserIn ({ commit }, payload) {
+    signUserIn ({ commit, dispatch }, payload) {
       commit('setLoading', true)
       commit('clearError')
       firebase
@@ -122,6 +122,7 @@ export default {
           })
           commit('setLoading', false)
           commit('clearError')
+          dispatch('fetchUserData')
         })
         .catch(err => {
           commit('setAuthErr', err)

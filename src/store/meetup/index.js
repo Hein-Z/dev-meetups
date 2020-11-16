@@ -5,12 +5,12 @@ export default {
     meetups: [],
     authErr: '',
     loading: false,
-    currentMeetupsId: ''
+    currentCreatedMeetupId: ''
   },
   mutations: {
     createMeetup (state, payload) {
       state.meetups.push(payload)
-      state.currentMeetupsId = payload.id
+      state.currentCreatedMeetupId = payload.id
     },
     updateMeetup (state, payload) {
       const meetup = state.meetups.find(meetup => {
@@ -193,6 +193,6 @@ export default {
           parseInt(a.timestamp) - parseInt(b.timestamp)
         ),
       getMeetupById: state => (id) => state.meetups.find(meetup => meetup.id === id),
-      getCurMeetupId: state => state.currentMeetupsId
+      getCurrentCreatedMeetupId: state => state.currentCreatedMeetupId
     }
 }

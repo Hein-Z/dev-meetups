@@ -23,19 +23,64 @@
           dense
           nav
         >
+          <div style="display: contents" v-if="isUserAuth">
+            <v-list-item
+              v-for="item in items"
+              :key="item.title"
+              link
+              router
+              :to="{name:item.link}"
+            >
+              <v-list-item-icon>
+                <v-icon>{{ item.icon }}</v-icon>
+              </v-list-item-icon>
+
+              <v-list-item-content>
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </div>
           <v-list-item
-            v-for="item in items"
-            :key="item.title"
             link
             router
-            :to="{name:item.link}"
+            :to="{name:'Signup'}"
+            v-if="!isUserAuth"
           >
             <v-list-item-icon>
-              <v-icon>{{ item.icon }}</v-icon>
+              <v-icon>mdi-account</v-icon>
             </v-list-item-icon>
 
             <v-list-item-content>
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
+              <v-list-item-title>Sign Up</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item
+            link
+            router
+            :to="{name:'Signin'}"
+            v-if="!isUserAuth"
+          >
+            <v-list-item-icon>
+              <v-icon>mdi-account-arrow-left</v-icon>
+            </v-list-item-icon>
+
+            <v-list-item-content>
+              <v-list-item-title>Sign In</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item
+            link
+            router
+            @click="logOut"
+            v-if="isUserAuth"
+            class="mt-5"
+          >
+            <v-list-item-icon>
+              <v-icon>mdi-account-arrow-right</v-icon>
+            </v-list-item-icon>
+
+            <v-list-item-content>
+              <v-list-item-title>Logout</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list>
@@ -47,7 +92,7 @@
         style="position: fixed;z-index: 1000"
         :extended="isUserAuth"
       >
-        <v-app-bar-nav-icon @click.stop="drawer = !drawer" v-if="isUserAuth"></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <v-toolbar-title>
           <router-link :to="{name:'Home'}" tag="span" style="cursor: pointer">Dev Meetups</router-link>
         </v-toolbar-title>
@@ -107,13 +152,13 @@
               <v-icon class="mr-2" medium>mdi-account-outline</v-icon>
               <v-badge
                 color="green"
-                content="6"
+                :content="$store.getters.getNotifications"
               >
                 <span class="d-none d-sm-inline-block">Profile</span>
               </v-badge>
             </v-tab>
             <v-tab router :to="{name:'CreateMeetup'}">
-              <v-icon class="mr-2" medium>mdi-comment-eye-outline</v-icon>
+              <v-icon class="mr-2" medium>mdi-comment-edit-outline</v-icon>
               <span class="d-none d-sm-inline-block">Organize Meetup</span>
             </v-tab>
           </v-tabs>
@@ -148,7 +193,7 @@ export default {
       },
       {
         title: 'Organize Meetup',
-        icon: 'mdi-comment-eye',
+        icon: 'mdi-comment-edit',
         link: 'CreateMeetup'
       }
     ]
@@ -170,6 +215,7 @@ export default {
     }
   },
   created () {
+
   }
 }
 </script>

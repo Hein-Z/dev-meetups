@@ -54,6 +54,9 @@ export default {
           .sort((a, b) =>
             parseInt(a.timestamp) - parseInt(b.timestamp)
           )
+      },
+      getNotifications: state => {
+        return parseInt(state.profile.createMeetups.length) + parseInt(state.profile.registeredMeetups.length)
       }
     }
 

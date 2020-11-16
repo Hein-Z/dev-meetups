@@ -57,7 +57,7 @@
                 :disabled="isUpdating"
                 filled
                 :rules="locationNameRules"
-                :counter="25"
+                :counter="50"
                 required
                 color="blue-grey lighten-2"
                 label="Location Name*"
@@ -133,7 +133,7 @@ export default {
       time: '',
       locationNameRules: [
         v => !!v || 'Location name is required',
-        v => v.length <= 25 || 'Location name must be less than 25 characters'
+        v => v.length <= 50 || 'Location name must be less than 50 characters'
       ],
       titleRule: [
         v => !!v || 'Title is required',
@@ -165,10 +165,11 @@ export default {
       }
       if (this.date && this.location && this.image && this.title && this.description && this.time && this.date) {
         this.$store.dispatch('createMeetup', payload)
-        this.$router.push({ name: 'Meetups' })
+        this.$router.push({
+          name: 'Home'
+        })
       } else {
         this.feedback = 'You must fill all field'
-        console.log(this.feedback, payload)
       }
     },
     onPickFile (file) {
@@ -190,6 +191,8 @@ export default {
       }
       fileReader.readAsDataURL(file)
     }
+  },
+  created () {
   }
 }
 </script>

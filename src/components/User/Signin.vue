@@ -53,10 +53,6 @@ export default {
     show: false,
     password: '',
     valid: false,
-    nameRules: [
-      v => !!v || 'Name is required',
-      v => (v && v.length <= 10) || 'Name must be less than 10 characters'
-    ],
     email: '',
     emailRules: [
       v => !!v || 'E-mail is required',
