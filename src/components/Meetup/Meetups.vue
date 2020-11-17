@@ -11,7 +11,7 @@
     </v-col>
     <v-col xs="12" md="6" v-for="(item,index) in meetups" :key="index">
       <v-card
-        color="#952175"
+        :color="$store.getters.getUser.id===item.author_id?'#385F73':'#952175'"
         dark
         class="mx-5"
       >
@@ -22,7 +22,13 @@
               v-text="item.place"
             ></v-card-title>
             <v-card-subtitle v-text="item.title" class="pb-0"></v-card-subtitle>
-            <v-card-subtitle v-text="'Create by : '+item.author_name" class="pb-0"></v-card-subtitle>
+            <v-card-subtitle class="pb-0">
+              Created By
+              {{
+                 $store.getters.getUser.id === item.author_id ? 'You'
+                  : item.author_name
+              }}
+            </v-card-subtitle>
             <v-card-subtitle v-text="'Date : '+item.date +' , ' +  item.time" class="pb-0"></v-card-subtitle>
 
             <v-card-actions>
@@ -54,6 +60,7 @@
 
   </v-row>
 </template>
+
 <script>
 export default {
   data: () => ({}),
@@ -65,6 +72,8 @@ export default {
       return this.$store.getters.getLoading
     }
   },
-  created: () => console.log()
+  created () {
+
+  }
 }
 </script>

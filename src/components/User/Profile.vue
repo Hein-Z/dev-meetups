@@ -14,7 +14,7 @@
     <v-row>
       <v-col xs="12" md="6" v-for="(item,index) in createdMeetups" :key="index">
         <v-card
-          color="#952175"
+          color="#1F7087"
           dark
           class="mx-5"
         >
@@ -63,7 +63,7 @@
     <v-row>
       <v-col xs="12" md="6" v-for="item in registeredMeetups" :key="item.id">
         <v-card
-          color="#952175"
+          color="#EA4863"
           dark
           class="mx-5"
         >

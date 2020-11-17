@@ -11,8 +11,8 @@
             <v-list-item-title>
               <h1>Dev Meetups</h1>
             </v-list-item-title>
-            <v-list-item-subtitle>
-              Home
+            <v-list-item-subtitle class="text--primary" style="font-weight: bolder">
+              {{isUserAuth?"User Name : "+$store.getters.getUser.username:'Home'}}
             </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
