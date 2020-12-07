@@ -8,7 +8,7 @@
         class="mx-auto px-16 py-5"
         width="444"
       >
-        <h1 class="text-center">Sign Up Account</h1>
+        <h1 class="text-center">Sign In Account</h1>
         <v-form
           ref="form"
           v-model="valid"
