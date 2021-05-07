@@ -4,16 +4,19 @@
 <a href='https://meetups-2-2.web.app/'>https://meetups-2-2.web.app<a>
 
 ## Registered Account
+
 email- hein@gmail.com
 password- hein1234
 
 ## What I've learnt from this project
 # firebase
+
 -hosting
 -authentication
 -firestore
 -storage
 # vue 
+
 -javascript data structure
 -api
 -axios
@@ -22,6 +25,7 @@ password- hein1234
 -vuetify
 
 ## function of project
+
 -register and login account
 -creating meetup post with date, place, image and descriptions
 -can edit and delete post
