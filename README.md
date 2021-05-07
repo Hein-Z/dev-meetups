@@ -5,33 +5,33 @@
 
 ## Registered Account
 
-email- hein@gmail.com
-password- hein1234
+email - hein@gmail.com
+password - hein1234
 
 ## What I've learnt from this project
 # firebase
 
--hosting
--authentication
--firestore
--storage
+- hosting
+- authentication
+- firestore
+- storage
 # vue 
 
--javascript data structure
--api
--axios
--vue router
--vuex
--vuetify
+- javascript data structure
+- api
+- axios
+- vue router
+- vuex
+- vuetify
 
 ## function of project
 
--register and login account
--creating meetup post with date, place, image and descriptions
--can edit and delete post
--can register others' post
--can remove register
--showing registered post and created post in user's profile
+- register and login account
+- creating meetup post with date, place, image and descriptions
+- can edit and delete post
+- can register others' post
+- can remove register
+- showing registered post and created post in user's profile
 
 
 ## Project setup
