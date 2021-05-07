@@ -17,6 +17,9 @@ password- hein1234
 -javascript data structure
 -api
 -axios
+-vue router
+-vuex
+-vuetify
 
 ## function of project
 -register and login account
